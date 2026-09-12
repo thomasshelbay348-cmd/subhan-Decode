@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI chatbot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="chat-shell">
+        <section class="chat-container" aria-label="subhan AI assistant">
+            <header class="chat-header">
+                <div class="brand-row">
+                    <div class="brand-mark">
+                        <img src="../images/img.jpg" alt="Subhan logo">
+                    </div>
+                    <div>
+                        <p class="eyebrow">Subhan</p>
+                        <h1>Portfolio assistant</h1>
+                    </div>
+                    <span class="online-status"><span></span> Online</span>
+                </div>
+                <p class="header-note">Ask about services, projects, skills, or contact details.</p>
+            </header>
+
+            <div id="chat-box" class="chat-box" aria-live="polite">
+                <div class="welcome-row">
+                    <div class="assistant-avatar">
+                        <img src="../images/img.jpg" alt="Subhan AI">
+                    </div>
+                    <div class="welcome-copy">
+                        <span class="message-label">Subhan Portfolio Assistant</span>
+                        <div class="message bot-message">Hi! I am Subhan's portfolio assistant. I can help with
+                            services, projects, skills, timelines, and getting in touch.</div>
+                    </div>
+                </div>
+                <div class="suggestions" aria-label="Suggested questions">
+                    <button class="suggestion" type="button"
+                        data-question="What services do you offer?">Services</button>
+                    <button class="suggestion" type="button"
+                        data-question="What are your starting prices?">Pricing</button>
+                    <button class="suggestion" type="button"
+                        data-question="How long does a project take?">Timeline</button>
+                    <button class="suggestion" type="button"
+                        data-question="How can I get in touch with your team?">Contact</button>
+                </div>
+            </div>
+
+            <form class="input-area" id="chat-form">
+                <label class="sr-only" for="user-input">Your question</label>
+                <input type="text" id="user-input" placeholder="Ask about Subhan's portfolio..." autocomplete="off">
+                <button id="send-button" type="submit" aria-label="Send message">
+                    <span>Send</span><span class="send-icon" aria-hidden="true">&#8594;</span>
+                </button>
+            </form>
+            <p class="footer-note">Subhan's portfolio assistant <span aria-hidden="true">&#8226;</span> Replies
+                are
+                AI-assisted</p>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>

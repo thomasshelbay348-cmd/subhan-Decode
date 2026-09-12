@@ -1,0 +1,329 @@
+{
+    "company_info": {
+        "name": "Subhan",
+        "brand": "Subhan's Portfolio",
+        "tagline": "Full-Stack MERN Developer & AI Integration Specialist",
+        "location": "Lahore, Pakistan",
+        "availability": "Available for freelance work",
+        "email": "shiekhsubhan62@gmail.com",
+        "phone": "+92 371 1441930",
+        "website": "https://subhan-dev-portfolio.netlify.app/",
+        "github": "https://github.com/thomasshelbay348-cmd",
+        "linkedin": "https://www.linkedin.com/in/subhan-shiekh12345",
+        "instagram": "https://www.instagram.com/invictustic",
+        "whatsapp": "https://wa.me/923711441930"
+    },
+    "knowledge_base": [
+        {
+            "Keywords": [
+                "hello",
+                "hlo",
+                "helo",
+                "hi",
+                "hey",
+                "greetings",
+                "good morning",
+                "good afternoon",
+                "good evening"
+            ],
+            "response": "Hello! I'm Subhan's portfolio assistant. How can I help you today?"
+        },
+        {
+            "Keywords": [
+                "who are you",
+                "who are u",
+                "who r u",
+                "about you",
+                "about subhan",
+                "tell me about subhan",
+                "who owns the portfolio",
+                "whose portfolio",
+                "portfolio owner",
+                "who owns this portfolio",
+                "profile",
+                "introduction"
+            ],
+            "response": "I am Subhan's portfolio assistant, representing Subhan, a Full-Stack MERN Developer and AI Integration Specialist based in Lahore, Pakistan. This is Subhan's personal portfolio. He builds scalable MERN web applications, custom chatbots, AI integrations, and digital management systems for modern businesses."
+        },
+        {
+            "Keywords": [
+                "role",
+                "title",
+                "what do you do",
+                "profession",
+                "developer"
+            ],
+            "response": "Subhan is a Full-Stack MERN Developer and AI Integration Specialist. His work combines frontend experiences, robust backend systems, AI integrations, custom chatbots, and performance-focused digital products."
+        },
+        {
+            "Keywords": [
+                "location",
+                "where are you",
+                "based",
+                "pakistan",
+                "lahore"
+            ],
+            "response": "Subhan is based in Lahore, Pakistan and is available for freelance work with clients and teams remotely."
+        },
+        {
+            "keywords": [
+                "services",
+                "what services",
+                "what do you offer",
+                "offering",
+                "help with",
+                "offerings"
+            ],
+            "response": "The portfolio offers Web Development, Mobile Development, UI/UX Design, Performance Optimization, E-commerce Solutions, and API Development. AI integration and custom chatbot development are also key areas of expertise."
+        },
+        {
+            "keywords": [
+                "web development",
+                "website",
+                "web app",
+                "responsive website",
+                "frontend",
+                "backend"
+            ],
+            "response": "Web Development includes responsive modern websites and web applications built with clean UI, reliable backend architecture, and performance in mind. Projects can be developed from concept through deployment using HTML, CSS, JavaScript, React, Node.js, Express, MongoDB, Firebase, Laravel, and Tailwind CSS."
+        },
+        {
+            "keywords": [
+                "mobile development",
+                "mobile app",
+                "android",
+                "ios",
+                "cross platform"
+            ],
+            "response": "Mobile Development focuses on cross-platform mobile applications that work smoothly on iOS and Android, with attention to usability, reliable performance, and a polished user experience."
+        },
+        {
+            "keywords": [
+                "ui ux",
+                "ui/ux",
+                "design",
+                "figma",
+                "adobe xd",
+                "user experience"
+            ],
+            "response": "UI/UX Design focuses on intuitive, accessible, and visually clear interfaces. Subhan is improving his skills with Figma and Adobe XD and applies user-centered thinking to web and application experiences."
+        },
+        {
+            "keywords": [
+                "performance",
+                "optimization",
+                "fast website",
+                "speed",
+                "scalable",
+                "reliability"
+            ],
+            "response": "Performance Optimization focuses on fast loading, scalable architecture, responsive layouts, and reliable user experiences across devices and network conditions."
+        },
+        {
+            "keywords": [
+                "ecommerce",
+                "e-commerce",
+                "online store",
+                "shopping",
+                "payment"
+            ],
+            "response": "E-commerce Solutions can include product catalogs, filtering, shopping carts, payment flows, and streamlined customer experiences. The portfolio includes an E-Commerce Website project demonstrating these capabilities."
+        },
+        {
+            "keywords": [
+                "api",
+                "api development",
+                "rest",
+                "graphql",
+                "integration"
+            ],
+            "response": "API Development covers robust backend integrations and application services. The exact API architecture is selected according to product requirements, data, security, and integrations."
+        },
+        {
+            "keywords": [
+                "ai",
+                "artificial intelligence",
+                "ai integration",
+                "chatbot",
+                "chat bot",
+                "automation"
+            ],
+            "response": "AI Integration is one of Subhan's specialties. He works on intelligent chatbot experiences, custom AI integrations, and automated digital tools that help businesses improve operations and user support."
+        },
+        {
+            "keywords": [
+                "technology",
+                "tech stack",
+                "technologies",
+                "tools",
+                "stack",
+                "programming"
+            ],
+            "response": "The portfolio highlights HTML, CSS, JavaScript, React, Node.js, Express, MongoDB, AI integration, chatbot development, Firebase, Laravel, and Tailwind CSS. Figma and Adobe XD support UI/UX design workflows."
+        },
+        {
+            "keywords": [
+                "projects",
+                "portfolio",
+                "featured work",
+                "work examples",
+                "show me projects"
+            ],
+            "response": "Featured projects include E-Commerce Website, Portfolio Website, Weather App, Blog Website, Game Landing Page, and Task Manager."
+        },
+        {
+            "keywords": [
+                "e-commerce website project",
+                "ecommerce project",
+                "online store project",
+                "product filtering"
+            ],
+            "response": "The E-Commerce Website is a modern online store project with product filtering, a shopping cart, and payment-system functionality. Highlighted technologies: HTML, CSS, and JavaScript."
+        },
+        {
+            "keywords": [
+                "portfolio website project",
+                "portfolio project",
+                "bootstrap project"
+            ],
+            "response": "The Portfolio Website is a personal portfolio project designed to showcase design and coding work. Highlighted technologies: HTML, CSS, and Bootstrap."
+        },
+        {
+            "keywords": [
+                "weather app",
+                "weather project",
+                "weather api",
+                "real time weather"
+            ],
+            "response": "The Weather App is a responsive application that displays real-time weather data through API integration. Highlighted technologies: HTML, CSS, and API integration."
+        },
+        {
+            "keywords": [
+                "blog website",
+                "blog project",
+                "markdown",
+                "tailwind project"
+            ],
+            "response": "The Blog Website is a clean blogging platform concept with markdown support. Highlighted technologies: HTML, Tailwind CSS, and JavaScript."
+        },
+        {
+            "keywords": [
+                "game landing page",
+                "game project",
+                "gsap",
+                "parallax"
+            ],
+            "response": "The Game Landing Page is an animated landing page concept with animation and parallax effects. Highlighted technologies: HTML, CSS, and GSAP."
+        },
+        {
+            "keywords": [
+                "task manager",
+                "task project",
+                "crud",
+                "task tracking"
+            ],
+            "response": "The Task Manager is a task-tracking web application with CRUD features and a clean user interface. Highlighted technologies: HTML, CSS, and JavaScript."
+        },
+        {
+            "keywords": [
+                "pricing",
+                "price",
+                "prices",
+                "cost",
+                "budget",
+                "package",
+                "how much"
+            ],
+            "response": "The portfolio does not publish fixed service prices. Project cost depends on scope, features, integrations, design requirements, and delivery needs. Contact Subhan for a tailored estimate."
+        },
+        {
+            "keywords": [
+                "timeline",
+                "delivery",
+                "how long",
+                "deadline",
+                "turnaround",
+                "time"
+            ],
+            "response": "Delivery time depends on scope, pages, features, integrations, and feedback cycles. A clear timeline can be agreed after understanding the requirements."
+        },
+        {
+            "keywords": [
+                "contact",
+                "get in touch",
+                "reach",
+                "email",
+                "phone",
+                "call",
+                "whatsapp"
+            ],
+            "response": "Contact Subhan by email at shiekhsubhan62@gmail.com, phone or WhatsApp at +92 371 1441930, or through the portfolio contact section. WhatsApp: https://wa.me/923711441930"
+        },
+        {
+            "keywords": [
+                "email address",
+                "email me",
+                "mail"
+            ],
+            "response": "Subhan's email address is shiekhsubhan62@gmail.com."
+        },
+        {
+            "keywords": [
+                "phone number",
+                "call number",
+                "mobile number"
+            ],
+            "response": "Subhan's phone number is +92 371 1441930. WhatsApp: https://wa.me/923711441930"
+        },
+        {
+            "keywords": [
+                "social media",
+                "github",
+                "linkedin",
+                "instagram",
+                "follow"
+            ],
+            "response": "Follow Subhan on GitHub: https://github.com/thomasshelbay348-cmd, LinkedIn: https://www.linkedin.com/in/subhan-shiekh12345, and Instagram: https://www.instagram.com/invictustic"
+        },
+        {
+            "keywords": [
+                "available",
+                "freelance",
+                "hire",
+                "work together",
+                "collaborate",
+                "job"
+            ],
+            "response": "Subhan is available for freelance work and is open to discussing web applications, AI integrations, chatbots, digital management systems, and other modern software projects."
+        },
+        {
+            "keywords": [
+                "website link",
+                "official website",
+                "portfolio link",
+                "site url",
+                "where can i see"
+            ],
+            "response": "View the complete portfolio at https://subhan-dev-portfolio.netlify.app/"
+        },
+        {
+            "keywords": [
+                "about page",
+                "about me",
+                "background",
+                "computer science",
+                "student"
+            ],
+            "response": "Subhan is a dedicated Full-Stack Developer and Computer Science student. He combines backend architecture with AI integrations and custom chatbots to create efficient digital tools and improve user experiences."
+        },
+        {
+            "keywords": [
+                "faq",
+                "frequently asked",
+                "common questions",
+                "what can i ask"
+            ],
+            "response": "Ask about Subhan's services, technology stack, featured projects, AI and chatbot work, pricing approach, delivery timelines, contact details, availability, and social links."
+        }
+    ]
+}

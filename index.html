@@ -224,7 +224,7 @@
                         portfolio</p>
                 </div>
                 <div class="photo-container">
-                    <img src="images/img2.jpg" alt="">
+                    <img src="images/img3.jpg" alt="Subhan" class="photo">
                     <span class="tape tape1"></span>
                     <span class="tape tape2"></span>
                 </div>
@@ -426,8 +426,9 @@
         <section class="section reveal" style="text-align: center; padding-top: 50px;">
             <h1 style="color: #ff4d6d; font-family: 'Orbitron', sans-serif;">Let's Work Together</h1>
             <br>
-            <p style="color: #c9c9c9; max-width: 600px; margin: 0 auto; line-height: 1.6;">I'm actively seeking new opportunities and would love to discuss how I can contribute to your success.
-               Feel free to reach out through any of the channels below.</p>
+            <p style="color: #c9c9c9; max-width: 600px; margin: 0 auto; line-height: 1.6;">I'm actively seeking new
+                opportunities and would love to discuss how I can contribute to your success.
+                Feel free to reach out through any of the channels below.</p>
             <br>
         </section>
 
@@ -527,9 +528,12 @@
                 <div class="footer-social">
                     <h4>Connect</h4>
                     <div class="social-icons">
-                        <a href="https://github.com/thomasshelbay348-cmd" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/subhan-shiekh12345" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://wa.me/923711441930" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://github.com/thomasshelbay348-cmd" target="_blank" title="GitHub"><i
+                                class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/subhan-shiekh12345" target="_blank" title="LinkedIn"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a href="https://wa.me/923711441930" target="_blank" title="WhatsApp"><i
+                                class="fab fa-whatsapp"></i></a>
                     </div>
                     <p class="status-badge"><span class="dot"></span> Available for freelance work</p>
                 </div>
@@ -554,14 +558,38 @@
                 document.getElementById('nav-list').classList.remove('active');
             });
         });
+
+        function toggleChatbot(forceState) {
+            const chatbotWindow = document.getElementById('chatbotWindow');
+            const chatbotToggle = document.querySelector('.chatbot-float');
+            const shouldOpen = typeof forceState === 'boolean'
+                ? forceState
+                : chatbotWindow.hidden;
+
+            chatbotWindow.hidden = !shouldOpen;
+            chatbotToggle.setAttribute('aria-expanded', String(shouldOpen));
+        }
     </script>
 
+    <!-- Floating AI Chatbot Button -->
+    <button type="button" class="chatbot-float" aria-label="Open AI chatbot" title="Open AI chatbot"
+        onclick="toggleChatbot()" aria-expanded="false">
+        <i class="fa-solid fa-robot"></i>
+    </button>
+
+    <div class="chatbot-window" id="chatbotWindow" hidden aria-label="AI chatbot window">
+        <button type="button" class="chatbot-close" onclick="toggleChatbot(false)" aria-label="Close AI chatbot"
+            title="Close AI chatbot">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <iframe src="AI%20chatbot/index.html?v=4" title="AI chatbot"></iframe>
+    </div>
+
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/923711441930?text=Hi%20Subhan,%20I%20saw%20your%20portfolio%20and%20want%20to%20connect!" 
-       class="whatsapp-float" 
-       target="_blank" 
-       title="Chat on WhatsApp">
+    <a href="https://wa.me/923711441930?text=Hi%20Subhan,%20I%20saw%20your%20portfolio%20and%20want%20to%20connect!"
+        class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 </body>
+
 </html>

@@ -99,8 +99,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const target = document.querySelector(this.getAttribute("href"));
 
         if (target) {
+            const header = document.querySelector("header");
+            const headerHeight = header ? header.offsetHeight : 0;
+            const targetTop = window.scrollY + target.getBoundingClientRect().top - headerHeight - 20;
+
             window.scrollTo({
-                top: target.offsetTop - 120,
+                top: Math.max(0, targetTop),
                 behavior: "smooth"
             });
         }
@@ -134,31 +138,3 @@ if (contactForm) {
     });
 }
 
-// ===============================
-// HERO IMAGE HOVER EFFECT
-// ===============================
-const heroImg = document.getElementById('heroImage');
-if (heroImg) {
-    const defaultImage = "images/img3.jpg";
-    const hoverImages = [
-        "images/hero-image/hero.png",
-        "images/hero-image/kapkap_20260530183733375_sys.jpg.jpeg"
-    ];
-    let hoverIndex = 0;
-    let hoverInterval = null;
-
-    heroImg.addEventListener('mouseenter', () => {
-        hoverIndex = 0;
-        heroImg.src = hoverImages[hoverIndex];
-        hoverInterval = setInterval(() => {
-            hoverIndex = (hoverIndex + 1) % hoverImages.length;
-            heroImg.src = hoverImages[hoverIndex];
-        }, 1500);
-    });
-
-    heroImg.addEventListener('mouseleave', () => {
-        clearInterval(hoverInterval);
-        hoverInterval = null;
-        heroImg.src = defaultImage;
-    });
-}
