@@ -171,49 +171,28 @@ function findAnswer(rawMessage) {
     return topScore > 0 ? topEntry.response : null;
 }
 
-const GEMINI_API_KEY = 'YOUR_GEMINI_API_KEY_HERE'; // GitHub blocked the push because of the real API key
-const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
-
-// ── Gemini API Integration ─────────────────────────────────
+// ── Gemini AI Integration (via Netlify Serverless Backend) ─
 async function getGeminiResponse(userMessage) {
-    // Context about Subhan to feed the AI
-    const systemContext = `
-        You are Subhan's portfolio assistant. You represent Subhan, a Full-Stack MERN Developer and AI Integration Specialist based in Lahore, Pakistan.
-        Your tone should be professional, friendly, and helpful. Keep responses concise. Use markdown for lists and bolding.
-        
-        Key Info:
-        - Email: shiekhsubhan62@gmail.com
-        - Phone/WhatsApp: +92 371 1441930 (https://wa.me/923711441930)
-        - Skills: HTML, CSS, JavaScript, React, Node.js, Express, MongoDB, Firebase, Laravel, Tailwind CSS, AI integration, custom chatbots.
-        - Services: Web Development, Mobile Development, UI/UX Design, Performance Optimization, E-commerce, API Development, AI Integrations.
-        - Projects: E-Commerce Website, Portfolio Website, Weather App, Blog Website, Game Landing Page, Task Manager.
-        - Pricing/Timeline: Depends on project scope and features. Contact for an estimate.
-        
-        Only answer questions related to Subhan's portfolio, skills, projects, and contact info. If asked about something entirely unrelated, politely steer the conversation back to his services.
-    `;
-
     try {
-        const response = await fetch(GEMINI_API_URL, {
+        const response = await fetch('/.netlify/functions/gemini', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                system_instruction: {
-                    parts: [{ text: systemContext }]
-                },
-                contents: [{
-                    parts: [{ text: userMessage }]
-                }]
-            })
+            body: JSON.stringify({ message: userMessage })
         });
 
+        if (!response.ok) {
+            console.warn('Backend function error:', response.status);
+            return null;
+        }
+
         const data = await response.json();
-        if (data.candidates && data.candidates.length > 0) {
-            return data.candidates[0].content.parts[0].text;
+        if (data && data.reply) {
+            return data.reply;
         }
     } catch (error) {
-        console.error('Gemini API Error:', error);
+        console.error('Gemini Backend API Error:', error);
     }
     return null;
 }
