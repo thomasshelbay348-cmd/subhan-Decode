@@ -43,7 +43,7 @@ const FALLBACK_KNOWLEDGE = {
         },
         {
             keywords: ['project','projects','featured work','portfolio','work examples'],
-            response: "Featured projects: E-Commerce Website, Portfolio Website, Weather App, Blog Website, Game Landing Page, and Task Manager."
+            response: "Featured projects: BJ Architects Website, Airport Luggage Van Website, Al Fatima Academy Website, Portfolio Website, and NexMove Chatbot."
         },
         {
             keywords: ['skill','skills','technology','tech stack','technologies','tools','stack','programming'],

@@ -167,62 +167,72 @@
                 "portfolio",
                 "featured work",
                 "work examples",
-                "show me projects"
+                "show me projects",
+                "your work",
+                "what have you built",
+                "project list"
             ],
-            "response": "Featured projects include E-Commerce Website, Portfolio Website, Weather App, Blog Website, Game Landing Page, and Task Manager."
+            "response": "Subhan's featured projects include: 1) BJ Architects Website — a professional architecture firm website. 2) Airport Luggage Van Website — a London-based luxury baggage transport platform. 3) Al Fatima Academy Website — an online Islamic education platform. 4) Portfolio Website — a multipage personal portfolio web app. 5) NexMove Chatbot — an AI-powered chatbot with Gemini API integration. You can ask me about any specific project for more details!"
         },
         {
             "keywords": [
-                "e-commerce website project",
-                "ecommerce project",
-                "online store project",
-                "product filtering"
+                "bj architects",
+                "bj architect",
+                "architecture website",
+                "architect project",
+                "bj architects website",
+                "3d bim",
+                "construction website"
             ],
-            "response": "The E-Commerce Website is a modern online store project with product filtering, a shopping cart, and payment-system functionality. Highlighted technologies: HTML, CSS, and JavaScript."
+            "response": "BJ Architects Website is a professional website built for BJ Architects Global — an architecture, 3D BIM modeling (LOD 300 to 500), and turnkey construction firm with 13+ years of international experience across Saudi Arabia, UAE, Australia, and Pakistan. The firm specializes in high-rise commercial planning, luxury residential design, and precise remote engineering. Technologies used: HTML, Tailwind CSS, JavaScript, Chatbot, Responsive Design, UI/UX, SEO. Live demo: https://bjarchitectspk.vercel.app/"
+        },
+        {
+            "keywords": [
+                "airport luggage",
+                "luggage van",
+                "airport website",
+                "airport luggage van",
+                "london transport",
+                "baggage transport",
+                "mercedes fleet"
+            ],
+            "response": "Airport Luggage Van Website is a platform built for Airport Luggage Transfer — an elite London ground logistics and luxury bulk baggage transport service. It features an instant secure flight dispatch booking system, multi-capacity Mercedes fleet (MWB, LWB, Luton Vans), and multilingual support for private jet arrivals and executive travelers. Technologies used: HTML, React, Tailwind CSS, JavaScript, UI/UX, Responsive Design, SEO. Live demo: https://airportluggage-van.vercel.app/"
+        },
+        {
+            "keywords": [
+                "al fatima",
+                "al fatima academy",
+                "islamic education",
+                "quran learning",
+                "quranic",
+                "tajweed",
+                "tafseer",
+                "online academy",
+                "academy website"
+            ],
+            "response": "Al Fatima Academy Website is a comprehensive online Islamic education platform dedicated to Quranic learning, Tajweed, Tafseer, and Arabic language courses. It features structured online classes, certified expert tutors, flexible scheduling, and a global student portal designed for accessible distance learning. Technologies used: HTML, Tailwind CSS, JavaScript, Chatbot, Responsive Design, UI/UX, SEO. Live demo: https://www.alfatimaacademy.com/"
         },
         {
             "keywords": [
                 "portfolio website project",
                 "portfolio project",
-                "bootstrap project"
+                "personal portfolio",
+                "multipage portfolio",
+                "portfolio web app"
             ],
-            "response": "The Portfolio Website is a personal portfolio project designed to showcase design and coding work. Highlighted technologies: HTML, CSS, and Bootstrap."
+            "response": "Portfolio Website is a multipage personal portfolio and web application built with a modular layout to showcase full-stack projects, technical expertise, work experience, and an interactive contact system. Technologies used: HTML, CSS, JavaScript, Animation, Responsive Design, React.js, Tailwind CSS, UI/UX, SEO. Live demo: https://business-portfolio-ecru-gamma.vercel.app/#/"
         },
         {
             "keywords": [
-                "weather app",
-                "weather project",
-                "weather api",
-                "real time weather"
+                "nexmove",
+                "nexmove chatbot",
+                "chatbot project",
+                "ai chatbot project",
+                "gemini chatbot",
+                "gemini api",
+                "conversational ai"
             ],
-            "response": "The Weather App is a responsive application that displays real-time weather data through API integration. Highlighted technologies: HTML, CSS, and API integration."
-        },
-        {
-            "keywords": [
-                "blog website",
-                "blog project",
-                "markdown",
-                "tailwind project"
-            ],
-            "response": "The Blog Website is a clean blogging platform concept with markdown support. Highlighted technologies: HTML, Tailwind CSS, and JavaScript."
-        },
-        {
-            "keywords": [
-                "game landing page",
-                "game project",
-                "gsap",
-                "parallax"
-            ],
-            "response": "The Game Landing Page is an animated landing page concept with animation and parallax effects. Highlighted technologies: HTML, CSS, and GSAP."
-        },
-        {
-            "keywords": [
-                "task manager",
-                "task project",
-                "crud",
-                "task tracking"
-            ],
-            "response": "The Task Manager is a task-tracking web application with CRUD features and a clean user interface. Highlighted technologies: HTML, CSS, and JavaScript."
+            "response": "NexMove Chatbot is a responsive, AI-integrated chatbot developed to automate customer interactions, answer service inquiries in real time, and enhance overall user engagement. It features intelligent conversational design with seamless integration of the Gemini API, built for NexMove Development. Technologies used: HTML, JavaScript, Responsive Design, Gemini API, Primary Knowledge, Secondary Knowledge. Live demo: https://thomasshelbay348-cmd.github.io/chatbot/"
         },
         {
             "keywords": [

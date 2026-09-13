@@ -19,14 +19,8 @@ exports.handler = async function (event, context) {
             };
         }
 
-        // The API key is split into multiple parts to bypass GitHub's automated push protection
-        // Since this file runs on the backend server, the key remains completely hidden from frontend visitors.
-        const part1 = "AQ.Ab8RN6Icf2jui";
-        const part2 = "Tqlu7uWZtm1KdlOz";
-        const part3 = "0v3IsfezeOIMiVKuVFwzQ";
-        
-        // We still check process.env in case you want to set it properly later
-        const apiKey = process.env.GEMINI_API_KEY || (part1 + part2 + part3);
+        // Get the API key securely from Netlify environment variables
+        const apiKey = process.env.GEMINI_API_KEY;
 
         if (!apiKey) {
             return {
@@ -47,7 +41,7 @@ exports.handler = async function (event, context) {
         - Phone/WhatsApp: +92 371 1441930 (https://wa.me/923711441930)
         - Skills: HTML, CSS, JavaScript, React, Node.js, Express, MongoDB, Firebase, Laravel, Tailwind CSS, AI integration, custom chatbots.
         - Services: Web Development, Mobile Development, UI/UX Design, Performance Optimization, E-commerce, API Development, AI Integrations.
-        - Projects: E-Commerce Website, Portfolio Website, Weather App, Blog Website, Game Landing Page, Task Manager.
+        - Projects: BJ Architects Website, Airport Luggage Van Website, Al Fatima Academy Website, Portfolio Website, NexMove Chatbot.
         - Pricing/Timeline: Depends on project scope and features. Contact for an estimate.
         
         Only answer questions related to Subhan's portfolio, skills, projects, and contact info. If asked about something entirely unrelated, politely steer the conversation back to his services.

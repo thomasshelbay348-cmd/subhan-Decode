@@ -7,6 +7,11 @@
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 120px;
+    overflow-x: hidden;
+}
+
+body {
+    overflow-x: hidden;
 }
 
 body {
@@ -270,7 +275,7 @@ body {
 }
 
 .smooth-out {
-    animation: smoothOut 1.2s ease forwards;
+    animation: smoothOut 0.6s ease forwards;
 }
 
 @keyframes smoothOut {
@@ -282,8 +287,8 @@ body {
 
     to {
         opacity: 0;
-        transform: scale(1.1);
-        filter: blur(25px);
+        transform: scale(1.05);
+        filter: blur(15px);
     }
 }
 
@@ -291,7 +296,7 @@ body {
 .from-top {
     opacity: 0;
     transform: translateY(-40px);
-    animation: fromTop 0.8s ease forwards;
+    animation: fromTop 0.5s ease forwards;
 }
 
 @keyframes fromTop {
@@ -304,7 +309,7 @@ body {
 .from-left {
     opacity: 0;
     transform: translateX(-40px);
-    animation: fromLeft 0.8s ease forwards;
+    animation: fromLeft 0.5s ease forwards;
 }
 
 @keyframes fromLeft {
@@ -318,7 +323,7 @@ body {
 .from-right {
     opacity: 0;
     transform: translateX(40px);
-    animation: fromRight 0.8s ease forwards;
+    animation: fromRight 0.5s ease forwards;
 }
 
 @keyframes fromRight {
@@ -331,7 +336,7 @@ body {
 .from-bottom {
     opacity: 0;
     transform: translateY(40px);
-    animation: fromBottom 0.8s ease forwards;
+    animation: fromBottom 0.5s ease forwards;
 }
 
 @keyframes fromBottom {
@@ -345,7 +350,7 @@ body {
 .zoom-in {
     opacity: 0;
     transform: scale(0.8);
-    animation: zoomIn 0.8s ease forwards;
+    animation: zoomIn 0.5s ease forwards;
 }
 
 @keyframes zoomIn {
@@ -356,39 +361,46 @@ body {
 }
 
 .typewriter {
-    border-right: 2px solid #ff4d6d;
+    display: inline-block;
+    border-right: 3px solid #ff4d6d;
     white-space: nowrap;
     overflow: hidden;
+    animation: blinkCursor 0.8s step-end infinite;
+}
+
+@keyframes blinkCursor {
+    from, to { border-color: transparent; }
+    50% { border-color: #ff4d6d; }
 }
 
 .from-top {
     opacity: 0;
     transform: translateY(-40px);
-    animation: fromTop 0.8s ease forwards;
+    animation: fromTop 0.5s ease forwards;
 }
 
 .from-left {
     opacity: 0;
     transform: translateX(-40px);
-    animation: fromLeft 0.8s ease forwards;
+    animation: fromLeft 0.5s ease forwards;
 }
 
 .from-right {
     opacity: 0;
     transform: translateX(40px);
-    animation: fromRight 0.8s ease forwards;
+    animation: fromRight 0.5s ease forwards;
 }
 
 .from-bottom {
     opacity: 0;
     transform: translateY(40px);
-    animation: fromBottom 0.8s ease forwards;
+    animation: fromBottom 0.5s ease forwards;
 }
 
 .zoom-in {
     opacity: 0;
     transform: scale(0.85);
-    animation: zoomIn 0.8s ease forwards;
+    animation: zoomIn 0.5s ease forwards;
 }
 
 @keyframes fromTop {
@@ -820,6 +832,35 @@ hr {
     align-items: center;
 }
 
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+.skills-container span {
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #f3f3f3;
+    background: rgba(255, 80, 120, 0.1);
+    border: 1px solid rgba(255, 80, 120, 0.3);
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.skills-container span:hover {
+    background: rgba(255, 80, 120, 0.25);
+    border-color: rgba(255, 80, 120, 0.6);
+    box-shadow: 0 0 15px rgba(255, 80, 120, 0.4);
+    transform: translateY(-3px);
+    color: #fff;
+}
+
 .photo-container {
     position: relative;
     display: inline-block;
@@ -829,6 +870,12 @@ hr {
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 80, 120, 0.25);
     box-shadow: 0 0 25px rgba(255, 80, 120, 0.25);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.photo-container:hover {
+    transform: translateY(-5px) rotate(2deg);
+    box-shadow: 0 10px 30px rgba(255, 80, 120, 0.4);
 }
 
 .photo-container img {
@@ -1202,6 +1249,10 @@ hr {
         justify-content: center;
     }
 
+    .skills-container {
+        justify-content: center;
+    }
+
     .ul-list {
         gap: 1.5rem;
         padding: 10px 15px;
@@ -1474,11 +1525,12 @@ hr {
     }
 
     .chatbot-window {
-        right: 16px;
-        bottom: 80px;
-        width: calc(100vw - 32px);
-        height: min(620px, calc(100vh - 105px));
-        min-height: 460px;
+        right: 0;
+        bottom: 0;
+        width: 100vw;
+        height: 100vh;
+        min-height: 0;
+        border-radius: 0;
     }
 
     .whatsapp-float {
@@ -1626,13 +1678,26 @@ hr {
 /* ===============================
     HERO IMAGE
 =============================== */
+.home-section {
+    flex: 1;
+    min-width: 0;
+}
+
 .hero-image-container {
     flex: 1;
-    min-width: 400px;
+    min-width: 300px;
     max-width: 550px;
     overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0 0 25px rgba(255, 80, 120, 0.4);
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(255, 80, 120, 0.3);
+    border: 1px solid rgba(255, 80, 120, 0.15);
+    animation: floatImage 6s ease-in-out infinite;
+    transition: box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.hero-image-container:hover {
+    box-shadow: 0 0 45px rgba(255, 80, 120, 0.5);
+    border-color: rgba(255, 80, 120, 0.4);
 }
 
 .hero-img {
@@ -1640,4 +1705,219 @@ hr {
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.hero-image-container:hover .hero-img {
+    transform: scale(1.06);
+}
+
+@keyframes floatImage {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* ===============================
+   EXTRA SMALL MOBILE (480px and below)
+=============================== */
+@media (max-width: 480px) {
+    .home,
+    .about,
+    .project,
+    .services {
+        margin: 60px 12px;
+    }
+
+    .info-home h1 {
+        font-size: 28px;
+    }
+
+    .info-home h3 {
+        font-size: 18px;
+    }
+
+    .info-p p {
+        font-size: 14px;
+    }
+
+    .info-p2 {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .btnn {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .btn-home1,
+    .btn-home2 {
+        width: 100%;
+        text-align: center;
+    }
+
+    .follow {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .follow ul {
+        gap: 1rem;
+    }
+
+    .home img {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .hero-image-container {
+        max-width: 100%;
+    }
+
+    /* Intro card */
+    .card {
+        padding: 14px;
+    }
+
+    .left h1 {
+        font-size: 24px;
+    }
+
+    .desc {
+        font-size: 12px;
+    }
+
+    .top-tags {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .top-tags span {
+        font-size: 9px;
+        padding: 4px 10px;
+    }
+
+    .orbit-box {
+        width: 160px;
+        height: 160px;
+    }
+
+    .core {
+        inset: 30px;
+    }
+
+    .core span {
+        font-size: 10px;
+    }
+
+    /* About */
+    .about-info2 {
+        flex-direction: column;
+    }
+
+    .photo-container img {
+        width: 100%;
+        max-width: 220px;
+    }
+
+    .about h3 {
+        font-size: 22px;
+    }
+
+    /* Projects */
+    .projects-container {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card {
+        padding: 14px;
+    }
+
+    .project-card .skills a {
+        font-size: 10px;
+        padding: 4px 8px;
+    }
+
+    /* Services */
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card {
+        padding: 1.5rem;
+    }
+
+    .service-icon {
+        width: 65px;
+        height: 65px;
+        font-size: 1.6rem;
+    }
+
+    /* Contact */
+    #contact {
+        padding: 50px 12px;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .contact-form {
+        padding: 20px;
+    }
+
+    /* Footer */
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+
+    /* Chatbot window - full screen on very small mobile */
+    .chatbot-window {
+        right: 0;
+        bottom: 0;
+        width: 100vw;
+        height: 100vh;
+        min-height: 0;
+        border-radius: 0;
+    }
+
+    .chatbot-float,
+    .whatsapp-float {
+        right: 14px;
+        width: 46px;
+        height: 46px;
+        font-size: 22px;
+    }
+
+    .chatbot-float {
+        bottom: 75px;
+    }
+
+    .whatsapp-float {
+        bottom: 16px;
+    }
+
+    /* Nav mobile sidebar */
+    .ul-list {
+        width: 220px;
+    }
+
+    .menu-toggle {
+        right: 16px;
+        top: 18px;
+    }
+
+    /* Let's Work Together section */
+    .section p {
+        padding: 0 12px;
+    }
 }

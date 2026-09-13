@@ -7,13 +7,13 @@ window.addEventListener("load", () => {
 
     const animations = [
         { selector: ".top-tags", class: "from-top", delay: 0 },
-        { selector: ".left h1", class: "from-left", delay: 0.3 },
-        { selector: ".desc", class: "from-left", delay: 0.6 },
-        { selector: ".live-line", class: "from-bottom", delay: 0.9 },
-        { selector: ".buttons", class: "zoom-in", delay: 1.2 },
-        { selector: ".site-link", class: "from-bottom", delay: 1.5 },
-        { selector: ".right", class: "from-right", delay: 0.6 },
-        { selector: ".stats", class: "from-bottom", delay: 1.8 },
+        { selector: ".left h1", class: "from-left", delay: 0.1 },
+        { selector: ".desc", class: "from-left", delay: 0.2 },
+        { selector: ".live-line", class: "from-bottom", delay: 0.3 },
+        { selector: ".buttons", class: "zoom-in", delay: 0.4 },
+        { selector: ".site-link", class: "from-bottom", delay: 0.5 },
+        { selector: ".right", class: "from-right", delay: 0.2 },
+        { selector: ".stats", class: "from-bottom", delay: 0.6 },
     ];
 
     animations.forEach(item => {
@@ -35,10 +35,34 @@ window.addEventListener("load", () => {
             intro.style.display = "none";
             site.style.display = "block";
             initScrollAnimations();
-        }, 1200);
-    }, 3800);
+            initTypewriter();
+        }, 600);
+    }, 1800);
 });
 
+
+// ===============================
+// TYPEWRITER EFFECT (HERO H1)
+// ===============================
+function initTypewriter() {
+    const h1 = document.querySelector(".info-home h1");
+    if (!h1) return;
+    
+    const text = h1.innerText;
+    h1.innerText = "";
+    h1.classList.add("typewriter");
+    
+    let i = 0;
+    function typeChar() {
+        if (i < text.length) {
+            h1.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typeChar, 100); // typing speed
+        }
+    }
+    
+    setTimeout(typeChar, 400); // delay before typing starts
+}
 
 // ===============================
 // SCROLL REVEAL (SECTIONS)
@@ -93,10 +117,15 @@ window.addEventListener("scroll", () => {
 });
 
 // ===============================
+let isScrolling = false;
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener("click", function (e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute("href"));
+        if (isScrolling) return;
+        isScrolling = true;
+
+        const href = this.getAttribute("href");
+        const target = document.querySelector(href);
 
         if (target) {
             const header = document.querySelector("header");
@@ -107,6 +136,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 top: Math.max(0, targetTop),
                 behavior: "smooth"
             });
+
+            // Debounce: prevent rapid re-clicks causing glitches
+            setTimeout(() => { isScrolling = false; }, 600);
+        } else {
+            isScrolling = false;
         }
     });
 });
