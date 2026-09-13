@@ -1,0 +1,7 @@
+{
+  "name": "subhan-dev-portfolio",
+  "private": true,
+  "dependencies": {
+    "@google/genai": "^1.0.0"
+  }
+}
