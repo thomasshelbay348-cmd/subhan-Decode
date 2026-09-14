@@ -514,7 +514,9 @@ header {
 }
 
 .home {
-    margin: 160px 100px;
+    margin: 160px auto;
+    padding: 0 100px;
+    max-width: 1280px;
     color: #f2f2f2;
 }
 
@@ -532,6 +534,23 @@ header {
     padding: 6px 14px;
     margin-bottom: 30px;
     font-size: 14px;
+    animation: home-badge-pulse 2s infinite;
+    border: 1px solid rgba(255, 80, 120, 0.3);
+}
+
+@keyframes home-badge-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 80, 120, 0.4);
+        border-color: rgba(255, 80, 120, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 12px 2px rgba(255, 80, 120, 0.15);
+        border-color: rgba(255, 80, 120, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 80, 120, 0);
+        border-color: rgba(255, 80, 120, 0.3);
+    }
 }
 
 .home-s {
@@ -651,7 +670,9 @@ hr {
 
 /* ===== PROJECT SECTION ===== */
 .project {
-    margin: 160px 200px;
+    margin: 160px auto;
+    padding: 0 100px;
+    max-width: 1280px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -773,7 +794,9 @@ hr {
 }
 
 .about {
-    margin: 160px 200px;
+    margin: 160px auto;
+    padding: 0 100px;
+    max-width: 1280px;
     font-family: "Poppins", sans-serif;
     color: #f2f2f2;
 }
@@ -1042,7 +1065,9 @@ hr {
 }
 
 .services {
-    margin: 160px 200px;
+    margin: 160px auto;
+    padding: 0 100px;
+    max-width: 1280px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1173,6 +1198,118 @@ hr {
     box-shadow: 0 0 12px rgba(255, 80, 120, 0.5);
 }
 
+/* SEND BUTTON — Premium UI/UX */
+.contact-form .btn.send-btn {
+    width: 100%;
+    padding: 15px 24px;
+    background: linear-gradient(135deg, #1a0510, #2d0a18);
+    color: #ff9db3;
+    border: 1px solid rgba(255, 80, 120, 0.45);
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    cursor: pointer;
+    transition: all 0.35s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 18px rgba(255, 80, 120, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Gradient fill layer */
+.contact-form .btn.send-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #ff4d6d, #7a0c2e);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    z-index: 0;
+}
+
+/* Shimmer sweep */
+.contact-form .btn.send-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.12), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.55s ease;
+    z-index: 1;
+}
+
+.contact-form .btn.send-btn:hover::after {
+    left: 130%;
+}
+
+/* Content stays above layers */
+.send-btn-text,
+.send-icon-svg,
+.send-spinner {
+    position: relative;
+    z-index: 2;
+}
+
+/* Hover state */
+.contact-form .btn.send-btn:hover {
+    color: #fff;
+    border-color: #ff4d6d;
+    box-shadow: 0 0 35px rgba(255, 80, 120, 0.55), 0 4px 20px rgba(122, 12, 46, 0.4);
+    transform: translateY(-2px);
+}
+
+.contact-form .btn.send-btn:hover::before {
+    opacity: 1;
+}
+
+/* Icon slide-in on hover */
+.send-icon-svg {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.7;
+}
+
+.contact-form .btn.send-btn:hover .send-icon-svg {
+    transform: translateX(3px) scale(1.1);
+    opacity: 1;
+}
+
+/* Spinner for Sending... state */
+.send-spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 157, 179, 0.35);
+    border-top-color: #ff9db3;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    display: inline-block;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Sending state */
+.contact-form .btn.send-btn.sending {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Disabled state */
+.contact-form .btn.send-btn:disabled:not(.sending) {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
 .slide-in-left {
     transform: translateX(-40px);
     opacity: 0;
@@ -1212,7 +1349,8 @@ hr {
     .about,
     .project,
     .services {
-        margin: 120px 50px;
+        margin: 120px auto;
+        padding: 0 50px;
     }
 
     .home-container,
@@ -1286,7 +1424,8 @@ hr {
     .about,
     .project,
     .services {
-        margin: 80px 20px;
+        margin: 80px auto;
+        padding: 0 20px;
     }
 
     .project {
@@ -1471,14 +1610,14 @@ hr {
 }
 
 .chatbot-float {
-    bottom: 105px;
-    background: linear-gradient(135deg, #c7f36b, #163a31);
-    color: #163a31;
-    box-shadow: 0 0 25px rgba(199, 243, 107, 0.45);
+    bottom: 30px;
+    background: linear-gradient(135deg, #ff4d6d, #7a0c2e);
+    color: #fff;
+    box-shadow: 0 0 25px rgba(255, 80, 120, 0.45);
 }
 
 .whatsapp-float {
-    bottom: 30px;
+    bottom: 105px;
     background: linear-gradient(135deg, #ff4d6d, #7a0c2e);
 }
 
@@ -1489,7 +1628,7 @@ hr {
 }
 
 .chatbot-float:hover {
-    box-shadow: 0 0 40px rgba(199, 243, 107, 0.75);
+    box-shadow: 0 0 40px rgba(255, 80, 120, 0.75);
 }
 
 .whatsapp-float:hover {
@@ -1545,7 +1684,7 @@ hr {
     background: rgba(20, 5, 10, 0.95);
     backdrop-filter: blur(15px);
     border-top: 1px solid rgba(255, 80, 120, 0.25);
-    padding: 60px 20px 20px;
+    padding: 60px 20px 130px;
     color: #cfcfcf;
     font-family: 'Inter', sans-serif;
     margin-top: 50px;
@@ -1640,6 +1779,22 @@ hr {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: badge-pulse 2s infinite;
+}
+
+@keyframes badge-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(124, 255, 178, 0.4);
+        border-color: rgba(124, 255, 178, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 12px 2px rgba(124, 255, 178, 0.15);
+        border-color: rgba(124, 255, 178, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(124, 255, 178, 0);
+        border-color: rgba(124, 255, 178, 0.3);
+    }
 }
 
 .status-badge .dot {
@@ -1726,15 +1881,17 @@ hr {
     .about,
     .project,
     .services {
-        margin: 60px 12px;
+        margin: 60px auto;
+        padding: 0 12px;
     }
 
     .info-home h1 {
-        font-size: 28px;
+        font-size: 34px;
     }
 
     .info-home h3 {
-        font-size: 18px;
+        font-size: 22px;
+        font-weight: 400;
     }
 
     .info-p p {
@@ -1899,11 +2056,11 @@ hr {
     }
 
     .chatbot-float {
-        bottom: 75px;
+        bottom: 16px;
     }
 
     .whatsapp-float {
-        bottom: 16px;
+        bottom: 75px;
     }
 
     /* Nav mobile sidebar */

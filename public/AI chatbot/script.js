@@ -171,28 +171,25 @@ function findAnswer(rawMessage) {
     return topScore > 0 ? topEntry.response : null;
 }
 
-// ── Gemini AI Integration (via Netlify Serverless Backend) ─
+// ── Gemini AI (via secure Netlify Function — key hidden on server) ─
 async function getGeminiResponse(userMessage) {
     try {
         const response = await fetch('/.netlify/functions/gemini', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ message: userMessage })
+            method:  'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body:    JSON.stringify({ message: userMessage })
         });
 
         if (!response.ok) {
-            console.warn('Backend function error:', response.status);
+            console.warn('Server function error:', response.status);
             return null;
         }
 
         const data = await response.json();
-        if (data && data.reply) {
-            return data.reply;
-        }
+        return data?.reply || null;
+
     } catch (error) {
-        console.error('Gemini Backend API Error:', error);
+        console.error('Gemini function fetch error:', error);
     }
     return null;
 }
