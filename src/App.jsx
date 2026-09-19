@@ -1,5 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { init } from '@emailjs/browser';
+import '@n8n/chat/style.css';
+import { createChat } from '@n8n/chat';
 
 import Intro from './components/Intro';
 import Navbar from './components/Navbar';
@@ -11,12 +13,31 @@ import WorkTogether from './components/WorkTogether';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import WhatsAppFloat from './components/WhatsAppFloat';
-import ChatbotFloat from './components/ChatbotFloat';
 
 // Initialize EmailJS once
 init({ publicKey: '2eEd0dIPHNhOQKA4t' });
 
 function App() {
+  useEffect(() => {
+    createChat({
+      webhookUrl: 'https://subhan123ahmii.app.n8n.cloud/webhook/07dd155e-58b7-42b5-aa92-ceb214f2bf58/chat',
+      mode: 'window',
+      theme: 'dark',
+      initialMessages: [
+        'Hi! I am Subhan\'s portfolio assistant. How can I help you Today ?'
+      ],
+      i18n: {
+        en: {
+          title: 'portfolio assistant',
+          subtitle: 'Ask about services, projects, skills, or contact details.',
+          footer: 'Subhan\'s portfolio assistant • Replies are AI-assisted',
+          getStarted: 'New Conversation',
+          inputPlaceholder: 'Ask about Subhan\'s portfolio...',
+        },
+      },
+    });
+  }, []);
+
   const [showIntro, setShowIntro] = useState(() => {
     return sessionStorage.getItem('introPlayed') !== 'true';
   });
@@ -146,7 +167,6 @@ function App() {
           <Contact />
           <Footer />
           <WhatsAppFloat />
-          <ChatbotFloat />
         </div>
       )}
     </>

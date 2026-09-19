@@ -57,9 +57,19 @@ const Navbar = () => {
   return (
     <header>
       <div className="div-list">
+        {/* Brand name — visible on mobile only */}
+        <span className="nav-brand">Subhan Ahmad</span>
+
+        {/* Hamburger button */}
         <div className="menu-toggle" id="mobile-menu" onClick={toggleMenu}>
-          <i className="fa-solid fa-bars"></i>
+          <i className={menuOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'}></i>
         </div>
+
+        {/* Overlay — close menu when tapping outside */}
+        {menuOpen && (
+          <div className="nav-overlay" style={{ display: 'block' }} onClick={closeMenu} />
+        )}
+
         <ul className={`ul-list${menuOpen ? ' active' : ''}`} id="nav-list">
           {navLinks.map(link => (
             <li key={link.id} className={activeSection === link.id ? 'active' : ''}>
