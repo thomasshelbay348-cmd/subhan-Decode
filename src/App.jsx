@@ -54,7 +54,38 @@ function App() {
         },
       },
     });
+
+    // === INJECT CUSTOM CLOSE BUTTON INTO CHAT WINDOW ===
+    const injectCloseButton = () => {
+      const chatWindow = document.querySelector('.n8n-chat .chat-window');
+      if (!chatWindow) return;
+      if (chatWindow.querySelector('.custom-chat-close-btn')) return; // already injected
+
+      const closeBtn = document.createElement('button');
+      closeBtn.className = 'custom-chat-close-btn';
+      closeBtn.innerHTML = '✕';
+      closeBtn.setAttribute('aria-label', 'Close chat');
+      closeBtn.addEventListener('click', () => {
+        // Click the n8n toggle button to close the window
+        const toggleBtn = document.querySelector('.n8n-chat .chat-window-toggle');
+        if (toggleBtn) toggleBtn.click();
+      });
+      chatWindow.appendChild(closeBtn);
+    };
+
+    // Watch for chat window opening
+    const observer = new MutationObserver(() => {
+      const chatWindow = document.querySelector('.n8n-chat .chat-window');
+      if (chatWindow) {
+        injectCloseButton();
+      }
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    return () => observer.disconnect();
   }, [showIntro, isInitialLoading]);
+
 
   // ===== INITIAL LOADING PROGRESS =====
   useEffect(() => {

@@ -171,14 +171,80 @@
 .n8n-chat .chat-header::after {
     content: '● Online';
     position: absolute;
-    right: 15px;
-    top: 15px;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
     color: #4ade80;
     /* Bright Green Dot */
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.5px;
     text-shadow: 0 0 8px rgba(74, 222, 128, 0.6);
+}
+
+/* Explicitly Style the Close Button */
+.n8n-chat .chat-header button {
+    position: absolute !important;
+    right: 12px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background: rgba(255, 77, 109, 0.2) !important;
+    border: 1px solid rgba(255, 77, 109, 0.5) !important;
+    color: #ff4d6d !important;
+    width: 30px !important;
+    height: 30px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    cursor: pointer !important;
+    transition: 0.3s ease !important;
+    z-index: 10 !important;
+}
+
+.n8n-chat .chat-header button:hover {
+    background: #ff4d6d !important;
+    color: white !important;
+    box-shadow: 0 0 10px rgba(255, 77, 109, 0.6) !important;
+}
+
+.n8n-chat .chat-header button svg {
+    width: 16px !important;
+    height: 16px !important;
+    fill: currentColor !important;
+}
+
+/* ============================================
+   CUSTOM INJECTED CLOSE BUTTON FOR CHAT WINDOW
+   ============================================ */
+.custom-chat-close-btn {
+    position: absolute !important;
+    top: 12px !important;
+    right: 12px !important;
+    z-index: 999999 !important;
+    width: 34px !important;
+    height: 34px !important;
+    border-radius: 50% !important;
+    border: 2px solid rgba(255, 77, 109, 0.7) !important;
+    background: rgba(216, 60, 101, 0.25) !important;
+    color: #ff4d6d !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    box-shadow: 0 2px 10px rgba(216, 60, 101, 0.3) !important;
+    backdrop-filter: blur(4px) !important;
+}
+
+.custom-chat-close-btn:hover {
+    background: #ff4d6d !important;
+    color: #fff !important;
+    transform: rotate(90deg) scale(1.1) !important;
+    box-shadow: 0 0 18px rgba(255, 77, 109, 0.7) !important;
 }
 
 
@@ -2522,17 +2588,21 @@ hr {
 @media (max-width: 480px) {
     :root, .n8n-chat {
         --chat--window--right: 20px !important;
-        --chat--window--bottom: 175px !important;
+        --chat--window--bottom: 85px !important;
         --chat--window--width: calc(100vw - 40px) !important;
     }
 
     .n8n-chat .chat-window {
         width: calc(100vw - 40px) !important;
-        height: calc(100vh - 195px) !important;
-        bottom: 175px !important;
+        height: calc(100dvh - 100px) !important; /* dynamically scale based on keyboard state */
+        bottom: 85px !important; /* sit slightly above bottom toggle button */
+        top: auto !important;
         right: 20px !important;
         left: 20px !important;
+        max-height: 600px !important;
+        border-radius: 20px !important; /* rounded floating window look */
         transform: none !important;
         margin: 0 !important;
+        z-index: 999999 !important;
     }
 }
