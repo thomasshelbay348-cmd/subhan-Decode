@@ -2,7 +2,7 @@
 // API key lives here on the server, NEVER sent to the browser
 // Set GEMINI_API_KEY in: Netlify Dashboard → Site Settings → Environment Variables
 
-exports.handler = async function (event, context) {
+exports.handler = async function (event) {
     // Only allow POST
     if (event.httpMethod !== 'POST') {
         return { statusCode: 405, body: 'Method Not Allowed' };

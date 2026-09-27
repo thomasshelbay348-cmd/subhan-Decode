@@ -18,7 +18,7 @@ const About = () => {
             robust backend architectures with cutting edge AI integrations and custom chatbots. My focus is
             on creating automated, efficient digital tools that optimize business operations and elevate
             user experiences.</p>
-          <p>Right now, I'm improving my skills on :</p>
+          <p>Right now, I'm improving my skills .</p>
           <p><strong>Core Technologies:</strong></p>
           <div className="skills-container">
             <span>React</span>

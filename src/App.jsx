@@ -18,7 +18,25 @@ import WhatsAppFloat from './components/WhatsAppFloat';
 init({ publicKey: '2eEd0dIPHNhOQKA4t' });
 
 function App() {
+  const [showIntro, setShowIntro] = useState(() => {
+    return sessionStorage.getItem('introPlayed') !== 'true';
+  });
+  const [isInitialLoading, setIsInitialLoading] = useState(() => {
+    return sessionStorage.getItem('introPlayed') !== 'true';
+  });
+  const [loadingProgress, setLoadingProgress] = useState(0);
+  const [loadingFading, setLoadingFading] = useState(false);
+
+  const [introFading, setIntroFading] = useState(false);
+  const chatInitialized = useRef(false);
+
+  // ===== CHATBOT INITIALIZATION =====
   useEffect(() => {
+    if (showIntro || isInitialLoading) return;
+    if (chatInitialized.current) return;
+    
+    chatInitialized.current = true;
+
     createChat({
       webhookUrl: 'https://subhan123ahmii.app.n8n.cloud/webhook/07dd155e-58b7-42b5-aa92-ceb214f2bf58/chat',
       mode: 'window',
@@ -36,17 +54,37 @@ function App() {
         },
       },
     });
-  }, []);
+  }, [showIntro, isInitialLoading]);
 
-  const [showIntro, setShowIntro] = useState(() => {
-    return sessionStorage.getItem('introPlayed') !== 'true';
-  });
-  const [introFading, setIntroFading] = useState(false);
-  const hasRunIntro = useRef(false);
+  // ===== INITIAL LOADING PROGRESS =====
+  useEffect(() => {
+    if (!isInitialLoading) return;
+
+    let currentProgress = 0;
+    const interval = setInterval(() => {
+      currentProgress += Math.floor(Math.random() * 8) + 2; 
+      if (currentProgress >= 100) {
+        currentProgress = 100;
+        setLoadingProgress(currentProgress);
+        clearInterval(interval);
+        
+        setTimeout(() => {
+          setLoadingFading(true);
+          setTimeout(() => {
+            setIsInitialLoading(false);
+          }, 500); 
+        }, 300);
+      } else {
+        setLoadingProgress(currentProgress);
+      }
+    }, 40); 
+    
+    return () => clearInterval(interval);
+  }, [isInitialLoading]);
 
   // ===== INTRO ANIMATIONS & TRANSITION =====
   useEffect(() => {
-    if (!showIntro) return;
+    if (isInitialLoading || !showIntro) return;
 
     // Force page to start at top on load
     if (typeof history !== 'undefined' && 'scrollRestoration' in history) {
@@ -89,7 +127,7 @@ function App() {
       clearTimeout(animTimeout);
       clearTimeout(hideTimeout);
     };
-  }, []);
+  }, [isInitialLoading, showIntro]);
 
   // ===== SCROLL REVEAL =====
   const initScrollAnimations = () => {
@@ -148,15 +186,32 @@ function App() {
 
   return (
     <>
+      {/* INITIAL LOADING SCREEN */}
+      {isInitialLoading && (
+        <div className={`aesthetic-loader ${loadingFading ? 'smooth-out' : ''}`}>
+          <div className="circular-loader-container">
+            <svg className="circular-loader" width="220" height="220" viewBox="0 0 220 220">
+              <circle cx="110" cy="110" r="100" className="loader-circle-bg" />
+              <circle 
+                cx="110" cy="110" r="100" 
+                className="loader-circle-progress" 
+                style={{ strokeDashoffset: 628.32 - (628.32 * loadingProgress) / 100 }} 
+              />
+            </svg>
+            <div className="loader-number">{loadingProgress}%</div>
+          </div>
+        </div>
+      )}
+
       {/* INTRO SCREEN */}
-      {showIntro && (
+      {showIntro && !isInitialLoading && (
         <div className={introFading ? 'smooth-out' : ''} style={{ display: 'block' }}>
           <Intro />
         </div>
       )}
 
       {/* MAIN SITE */}
-      {!showIntro && (
+      {!showIntro && !isInitialLoading && (
         <div id="real-site">
           <Navbar />
           <Home />
