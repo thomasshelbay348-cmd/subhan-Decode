@@ -1,5 +1,13 @@
 const projectsData = [
   {
+    img: '/images/net.jpg',
+    alt: 'NETVIBE',
+    title: 'NetVibe | Modern Streaming & Entertainment Web App',
+    description: 'Explore NetVibe, a responsive streaming platform built with React and Next.js. Discover trending movies, top-rated TV series, anime, and Korean dramas.',
+    skills: ['HTML', 'Tailwind', 'Typescript', 'Next.js', 'Responsive Design', 'UI/UX', 'web development', 'web design', 'vercel'],
+    liveDemo: 'https://netvibe-nine.vercel.app/',
+  },
+  {
     img: '/images/Bj logo.jpg',
     alt: 'BJ Architects',
     title: 'BJ Architects website',
