@@ -21,18 +21,13 @@ function App() {
   const [showIntro, setShowIntro] = useState(() => {
     return sessionStorage.getItem('introPlayed') !== 'true';
   });
-  const [isInitialLoading, setIsInitialLoading] = useState(() => {
-    return sessionStorage.getItem('introPlayed') !== 'true';
-  });
-  const [loadingProgress, setLoadingProgress] = useState(0);
-  const [loadingFading, setLoadingFading] = useState(false);
 
   const [introFading, setIntroFading] = useState(false);
   const chatInitialized = useRef(false);
 
   // ===== CHATBOT INITIALIZATION =====
   useEffect(() => {
-    if (showIntro || isInitialLoading) return;
+    if (showIntro) return;
     if (chatInitialized.current) return;
     
     chatInitialized.current = true;
@@ -84,38 +79,12 @@ function App() {
     observer.observe(document.body, { childList: true, subtree: true });
 
     return () => observer.disconnect();
-  }, [showIntro, isInitialLoading]);
+  }, [showIntro]);
 
-
-  // ===== INITIAL LOADING PROGRESS =====
-  useEffect(() => {
-    if (!isInitialLoading) return;
-
-    let currentProgress = 0;
-    const interval = setInterval(() => {
-      currentProgress += Math.floor(Math.random() * 8) + 2; 
-      if (currentProgress >= 100) {
-        currentProgress = 100;
-        setLoadingProgress(currentProgress);
-        clearInterval(interval);
-        
-        setTimeout(() => {
-          setLoadingFading(true);
-          setTimeout(() => {
-            setIsInitialLoading(false);
-          }, 500); 
-        }, 300);
-      } else {
-        setLoadingProgress(currentProgress);
-      }
-    }, 40); 
-    
-    return () => clearInterval(interval);
-  }, [isInitialLoading]);
 
   // ===== INTRO ANIMATIONS & TRANSITION =====
   useEffect(() => {
-    if (isInitialLoading || !showIntro) return;
+    if (!showIntro) return;
 
     // Force page to start at top on load
     if (typeof history !== 'undefined' && 'scrollRestoration' in history) {
@@ -158,7 +127,7 @@ function App() {
       clearTimeout(animTimeout);
       clearTimeout(hideTimeout);
     };
-  }, [isInitialLoading, showIntro]);
+  }, [showIntro]);
 
   // ===== SCROLL REVEAL =====
   const initScrollAnimations = () => {
@@ -217,32 +186,15 @@ function App() {
 
   return (
     <>
-      {/* INITIAL LOADING SCREEN */}
-      {isInitialLoading && (
-        <div className={`aesthetic-loader ${loadingFading ? 'smooth-out' : ''}`}>
-          <div className="circular-loader-container">
-            <svg className="circular-loader" width="220" height="220" viewBox="0 0 220 220">
-              <circle cx="110" cy="110" r="100" className="loader-circle-bg" />
-              <circle 
-                cx="110" cy="110" r="100" 
-                className="loader-circle-progress" 
-                style={{ strokeDashoffset: 628.32 - (628.32 * loadingProgress) / 100 }} 
-              />
-            </svg>
-            <div className="loader-number">{loadingProgress}%</div>
-          </div>
-        </div>
-      )}
-
       {/* INTRO SCREEN */}
-      {showIntro && !isInitialLoading && (
+      {showIntro && (
         <div className={introFading ? 'smooth-out' : ''} style={{ display: 'block' }}>
           <Intro />
         </div>
       )}
 
       {/* MAIN SITE */}
-      {!showIntro && !isInitialLoading && (
+      {!showIntro && (
         <div id="real-site">
           <Navbar />
           <Home />

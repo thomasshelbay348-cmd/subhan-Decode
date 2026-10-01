@@ -2518,64 +2518,7 @@ hr {
     }
 }
 
-/* AESTHETIC LOADER */
-.aesthetic-loader {
-    position: fixed;
-    inset: 0;
-    z-index: 10000;
-    background: radial-gradient(circle at 50% 15%, rgba(160, 40, 70, .55), transparent 60%),
-                radial-gradient(circle at 50% 85%, rgba(60, 10, 30, .85), transparent 60%),
-                linear-gradient(180deg, #0a050a, #12060c);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #eaeaea;
-}
 
-.circular-loader-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 220px;
-    height: 220px;
-}
-
-.circular-loader {
-    transform: rotate(-90deg);
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.loader-circle-bg {
-    fill: none;
-    stroke: rgba(255, 255, 255, 0.05);
-    stroke-width: 6;
-}
-
-.loader-circle-progress {
-    fill: none;
-    stroke: #ff4d6d;
-    stroke-width: 6;
-    stroke-linecap: round;
-    stroke-dasharray: 628.32;
-    transition: stroke-dashoffset 0.05s ease-out;
-    filter: drop-shadow(0 0 10px rgba(255, 77, 109, 0.6));
-}
-
-.loader-number {
-    font-size: 2.8rem;
-    font-weight: 700;
-    font-family: 'Orbitron', sans-serif;
-    color: #f3f3f3;
-    text-shadow: 0 0 15px rgba(255, 77, 109, 0.5);
-    background: linear-gradient(135deg, #ff4d6d, #ffffff);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    z-index: 10;
-}
 
 /* Chat Window Responsive and Rounded Styles */
 .n8n-chat .chat-window {
